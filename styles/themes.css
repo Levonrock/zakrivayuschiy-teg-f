@@ -4,3 +4,49 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-font: 'Inter';
+    --main-variation-font: 'Inter-Variable';
+    --accent-font: 'Press Start 2P';
+    --bc-color: #ffffff;
+    --main-color: #000000;
+    --article-main-text-weight: 400;
+    --article-title-weight: 700;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-font: 'Inter';
+    --main-variation-font: 'Inter-Variable';
+    --accent-font: 'Press Start 2P';
+    --bc-color: #000000;
+    --main-color: #00CC14;
+    --article-main-text-weight: 465;
+    --article-title-weight: 785;
+  }
+}
+
+:root.theme-light {
+  --main-font: 'Inter';
+  --main-variation-font: 'Inter-Variable';
+  --accent-font: 'Press Start 2P';
+  --bc-color: #ffffff;
+  --main-color: #000000;
+  --article-main-text-weight:  400;
+  --article-title-weight:  700;
+}
+
+:root.theme-dark {
+  --main-font: 'Inter';
+  --main-variation-font: 'Inter-Variable';
+  --accent-font: 'Press Start 2P';
+  --bc-color: #000000;
+  --main-color: #00CC14;
+  --article-main-text-weight: 465;
+  --article-title-weight: 785;
+}
+
+
