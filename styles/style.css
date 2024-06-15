@@ -14,6 +14,12 @@
 
 */
 
+
+
+/*Здравствуйте. Я извиняюсь, но после моего коммита - скрипт, меняющий цвет кнопок, перестал работать, но 
+  НИКАИХ изменений классов в меню не было совершенно. 
+*/
+
 .page {
   display: flex;
   flex-direction: column;
@@ -80,8 +86,6 @@ a {
   line-height: 1.14;
 }
 
-/* до этого момента можешь не трогать*/
-
 .theme-menu__item:not(:last-of-type) {
   margin-block-end: 10px;
 }
@@ -94,27 +98,24 @@ a {
   background-color: transparent;
   transition: opacity 0.3s;
 }
-
-.theme-menu__button:hover {
-  opacity: 0.6;
-  transition: opacity 0.3s;
-  cursor: pointer;
-}
-
+  .theme-menu__button:hover {
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
 .theme-menu__button:disabled {
   opacity: 0.6;
   transition: opacity 0.3s;
   animation: none;
   pointer-events: none;
-  /*задай в виде переменной*/
 }
 
 .theme-menu__button::after {
   content: "";
   display: block;
   margin-top: 2px;
-  color: var(--main-color, #000);
   opacity: 0.6;
+  color: var(--main-color, #000);
   transition: width 0.3s, background-color 0.3s;
   scale: 0;
   block-size: 2px;
@@ -126,8 +127,8 @@ a {
 }
 
 .theme-menu__button:focus-visible::after {
-  color: var(--main-color, #000);
   opacity: 0.6;
+  color: var(--main-color, #000);
   transition: width 0.3s, background-color 0.3s linear;
   scale: 1;
 }
@@ -135,8 +136,8 @@ a {
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  color: var(--main-color, #000);
   opacity: 0.6;
+  color: var(--main-color, #000);
   inset-inline-start: -18.5px;
 }
 
@@ -148,19 +149,20 @@ a {
 
 /*Вёрстка main*/
 
-.cards-content {
-  display: grid;
-  width: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+.card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
-.card__list {
+.card__list-item {
+  display: flex;
+  flex-direction: column;
   border: 2px solid var(--main-color, #000);
   background-color: var(--bc-color, #fff);
+  width: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+  border: 2px solid var(--main-color, #000);
 }
-
-/*вроде до этого момента нормально все. только надо в header добавить focus*/
-
-
 
 .article__title {
   border-block-end: 2px solid var(--main-color, #000);
@@ -204,19 +206,45 @@ a {
   }
 }
 
-/*посмотри видео об image-set, в котором будут применены те же моменты для фото*/
 .article__picture {
   border-block-end: 2px solid var(--main-color, #000);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.sepia {
+  filter: sepia(0.5);
+}
+
+.saturate {
+  filter: saturate(80%);
+}
+
+.grayscale {
+  filter: grayscale(0,7);
+}
+
+.filter-combination {
+  filter: brightness(0.5) saturate(1.7) invert(180deg) blur(2px) sepia(0.8);
+}
+
+.hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.invert {
+  filter: saturate(1.5);
 }
 
 .article__image {
   display: block;
   width: 100%;
   height: auto;
+  border-block-end: 2px solid var(--main-color, #000);
   object-fit: cover;
   aspect-ratio: 1/1;
-  border-block-end: 2px solid var(--main-color, #000);
-
 }
 
 .article__description {
@@ -226,11 +254,17 @@ a {
   line-height: 1.17;
 }
 
+@media (min-width: 376px) {
+  .article__description {
+    padding-block-start: 30px;
+  }
+}
+
 .article__description-text + .article__description-text {
   margin-block-start: 27px;
 }
 
-/*стили для кнопок*/
+/*Блок с кнопками*/
 
 .article__controls {
   display: flex;
@@ -302,12 +336,14 @@ a {
   transition: fill 0.3s linear;
 }
 
-.like-icon.is-liked .heart {
-  animation: scale-icon-heart 0.3s ease-in 0.1s alternate; 
-}
-
-.like-icon.is-liked .sparks {
-  animation: sparks-fill 0.3s ease-in 0.3s alternate;
+@media (prefers-reduced-motion: no-preference) {
+  .like-icon.is-liked .heart {
+    animation: scale-icon-heart 0.3s ease-in 0.1s alternate; 
+  }
+  
+  .like-icon.is-liked .sparks {
+    animation: sparks-fill 0.3s ease-in 0.3s alternate;
+  }
 }
 
 .like-icon .contour {
@@ -323,7 +359,7 @@ a {
   outline: 2px solid var(--main-color, #000);
 }
 
-/**/
+/*Ситили для кнопки*/
 .button {
   border: none;
 }
@@ -376,7 +412,7 @@ a {
 } 
 
 .button__text {
-  color: var(--bc-color, #fff);
+  color: var(--button-text-color, #fff);
   mix-blend-mode: difference;
 }
 
@@ -390,22 +426,22 @@ a {
 .footer__button {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-block: 15px;
   align-items: center;
+  gap: 8px;
   min-width: 306px;
+  padding-block: 15px;
 }
 
 .footer__icon {
+  color: var(--button-text-color, #fff);
   block-size: 28px;
   inline-size: 28px;
-  color: #fff;
   mix-blend-mode: difference;
 }
 
 .dialog:not([open]) {
-  pointer-events: 0;
   opacity: 0;
+  pointer-events: 0;
 }
 
 .dialog::backdrop {
@@ -414,17 +450,40 @@ a {
 }
 
 .dialog {
+  position: fixed;
+  background-color: var(--bc-color, #fff);
+  border-color: var(--main-color, #fff);
+  inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 30px;
-  position: fixed;
-  inset: 0;
   padding-inline: 40px;
+  padding-block: 30px;
+  min-inline-size: 341px;
+}
+
+@media (min-width: 376px) {
+
+  .dialog {
+    max-inline-size: 353px;
+  }
+
+  .footer__button {
+    flex-direction: row;
+    justify-content: center;
+    padding-block: 15px;
+  }
+
+  .footer__icon {
+    block-size: 21px;
+    inline-size: 21px;
+  }
 }
 
 .dialog__icon {
+  color: var(--dialog__icon-color, #000);
   flex-shrink: 0;
   block-size: 39px;
   inline-size: 39px;
@@ -432,19 +491,21 @@ a {
 
 .dialog__block {
   display: flex;
-  gap: 20px;
   align-items: center;
+  gap: 20px;
 }
 
 .dialog__title {
   font-family: var(--accent-font, 'Press Start 2P');
-  font-size: 14px;
+  color: var(--dialog__title-color, #000);
   font-weight: normal;
+  font-size: 14px;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .button__accept {
+  text-align: center;
   min-inline-size: 257px;
   min-block-size: 38px;
-  text-align: center;
 }
