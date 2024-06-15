@@ -28,11 +28,9 @@
   font-family: var(--main-font, 'Inter', 'sans-serif');
   font-weight: normal;
   background-color: var(--bc-color, #fff);
-  background-image: repeating-linear-gradient(
-      90deg,
+  background-image: repeating-linear-gradient(90deg,
       var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
-      var(--rep-linear-gradient-color-second, transparent) 2px 4px
-    ),
+      var(--rep-linear-gradient-color-second, transparent) 2px 4px),
     repeating-linear-gradient(to bottom, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px),
     linear-gradient(to bottom, var(--linear-gradient-color-first, #e7e7e7) 0.01%, var(--linear-gradient-color-second, #1a1a1a));
   background-size: cover;
@@ -98,11 +96,13 @@ a {
   background-color: transparent;
   transition: opacity 0.3s;
 }
-  .theme-menu__button:hover {
-    opacity: 0.6;
-    transition: opacity 0.3s;
-    cursor: pointer;
-  }
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
 .theme-menu__button:disabled {
   opacity: 0.6;
   transition: opacity 0.3s;
@@ -223,7 +223,7 @@ a {
 }
 
 .grayscale {
-  filter: grayscale(0,7);
+  filter: grayscale(0, 7);
 }
 
 .filter-combination {
@@ -260,7 +260,7 @@ a {
   }
 }
 
-.article__description-text + .article__description-text {
+.article__description-text+.article__description-text {
   margin-block-start: 27px;
 }
 
@@ -308,8 +308,7 @@ a {
 }
 
 .like-icon:active .core,
-.like-icon:active .main-body
-{
+.like-icon:active .main-body {
   fill: var(--heart__color, red);
 }
 
@@ -338,9 +337,9 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .like-icon.is-liked .heart {
-    animation: scale-icon-heart 0.3s ease-in 0.1s alternate; 
+    animation: scale-icon-heart 0.3s ease-in 0.1s alternate;
   }
-  
+
   .like-icon.is-liked .sparks {
     animation: sparks-fill 0.3s ease-in 0.3s alternate;
   }
@@ -363,6 +362,7 @@ a {
 .button {
   border: none;
 }
+
 .button {
   position: relative;
   z-index: 1;
@@ -407,9 +407,9 @@ a {
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 var(--main-color,#000);
+  box-shadow: 2px 2px 0 var(--main-color, #000);
   transition: box-shadow 0.3s;
-} 
+}
 
 .button__text {
   color: var(--button-text-color, #fff);
