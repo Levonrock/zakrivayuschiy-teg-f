@@ -14,8 +14,6 @@
 
 */
 
-
-
 /*Здравствуйте. Я извиняюсь, но после моего коммита - скрипт, меняющий цвет кнопок, перестал работать, но 
   НИКАИХ изменений классов в меню не было совершенно. 
 */
@@ -25,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   color: var(--main-color, #000);
-  font-family: var(--main-font, 'Inter', 'sans-serif');
+  font-family: var(--main-font, "Inter", "sans-serif");
   font-weight: normal;
   background-color: var(--bc-color, #fff);
   background-image: repeating-linear-gradient(
@@ -33,8 +31,16 @@
       var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
       var(--rep-linear-gradient-color-second, transparent) 2px 4px
     ),
-    repeating-linear-gradient(to bottom, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px),
-    linear-gradient(to bottom, var(--linear-gradient-color-first, #e7e7e7) 0.01%, var(--linear-gradient-color-second, #1a1a1a));
+    repeating-linear-gradient(
+      to bottom,
+      var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
+      var(--rep-linear-gradient-color-second, transparent) 2px 4px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--linear-gradient-color-first, #e7e7e7) 0.01%,
+      var(--linear-gradient-color-second, #1a1a1a)
+    );
   background-size: cover;
   background-attachment: fixed;
   min-inline-size: 320px;
@@ -43,8 +49,8 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-family: var(--main-variation-font, 'Inter-Variable', 'sans-serif');
-    font-variation-settings: 'wght' var(--article-main-text-weight, 400);
+    font-family: var(--main-variation-font, "Inter-Variable", "sans-serif");
+    font-variation-settings: "wght" var(--article-main-text-weight, 400);
   }
 }
 
@@ -98,11 +104,13 @@ a {
   background-color: transparent;
   transition: opacity 0.3s;
 }
-  .theme-menu__button:hover {
-    opacity: 0.6;
-    transition: opacity 0.3s;
-    cursor: pointer;
-  }
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
 .theme-menu__button:disabled {
   opacity: 0.6;
   transition: opacity 0.3s;
@@ -158,10 +166,10 @@ a {
 .card__list-item {
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--main-color, #000);
-  background-color: var(--bc-color, #fff);
   width: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
   border: 2px solid var(--main-color, #000);
+  border: 2px solid var(--main-color, #000);
+  background-color: var(--bc-color, #fff);
 }
 
 .article__title {
@@ -176,7 +184,7 @@ a {
 
 @supports (font-variation-settings: normal) {
   .article__title {
-    font-variation-settings: 'wght' var(--article-title-weight, 700);
+    font-variation-settings: "wght" var(--article-title-weight, 700);
   }
 }
 
@@ -191,10 +199,12 @@ a {
   z-index: 1;
   opacity: 0.5;
   color: #000;
-  font-family: var(--accent-font, 'Press Start 2P');
+  font-family: var(--accent-font, "Press Start 2P");
   font-size: 14px;
   line-height: 14px;
-  text-shadow: -1px 0px var(--text-stroke-color, #fff), 0 1px var(--text-stroke-color, #fff), 1px 0 var(--text-stroke-color, #fff), 0 -1px var(--text-stroke-color, #fff);
+  text-shadow: -1px 0px var(--text-stroke-color, #fff),
+    0 1px var(--text-stroke-color, #fff), 1px 0 var(--text-stroke-color, #fff),
+    0 -1px var(--text-stroke-color, #fff);
   mix-blend-mode: hard-light;
 }
 
@@ -210,6 +220,10 @@ a {
   border-block-end: 2px solid var(--main-color, #000);
 }
 
+.invert {
+  filter: invert(0.5);
+}
+
 .blur {
   filter: blur(10px);
 }
@@ -223,7 +237,7 @@ a {
 }
 
 .grayscale {
-  filter: grayscale(0,7);
+  filter: grayscale(0, 7);
 }
 
 .filter-combination {
@@ -273,7 +287,6 @@ a {
   margin-inline-end: 25.6px;
 }
 
-
 /* начало анимации для Heart*/
 .card__icon-button {
   width: 39px;
@@ -308,8 +321,7 @@ a {
 }
 
 .like-icon:active .core,
-.like-icon:active .main-body
-{
+.like-icon:active .main-body {
   fill: var(--heart__color, red);
 }
 
@@ -338,9 +350,9 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   .like-icon.is-liked .heart {
-    animation: scale-icon-heart 0.3s ease-in 0.1s alternate; 
+    animation: scale-icon-heart 0.3s ease-in 0.1s alternate;
   }
-  
+
   .like-icon.is-liked .sparks {
     animation: sparks-fill 0.3s ease-in 0.3s alternate;
   }
@@ -360,12 +372,11 @@ a {
 }
 
 /*Ситили для кнопки*/
-.button {
-  border: none;
-}
+
 .button {
   position: relative;
   z-index: 1;
+  border: none;
   min-width: 130px;
   border: 2px solid var(--main-color, #000);
   overflow: hidden;
@@ -407,9 +418,9 @@ a {
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 var(--main-color,#000);
+  box-shadow: 2px 2px 0 var(--main-color, #000);
   transition: box-shadow 0.3s;
-} 
+}
 
 .button__text {
   color: var(--button-text-color, #fff);
@@ -451,21 +462,20 @@ a {
 
 .dialog {
   position: fixed;
-  background-color: var(--bc-color, #fff);
-  border-color: var(--main-color, #fff);
   inset: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
+  border-color: var(--main-color, #fff);
   padding-inline: 40px;
   padding-block: 30px;
+  background-color: var(--bc-color, #fff);
   min-inline-size: 341px;
 }
 
 @media (min-width: 376px) {
-
   .dialog {
     max-inline-size: 353px;
   }
@@ -483,8 +493,8 @@ a {
 }
 
 .dialog__icon {
-  color: var(--dialog__icon-color, #000);
   flex-shrink: 0;
+  color: var(--dialog__icon-color, #000);
   block-size: 39px;
   inline-size: 39px;
 }
@@ -496,8 +506,8 @@ a {
 }
 
 .dialog__title {
-  font-family: var(--accent-font, 'Press Start 2P');
   color: var(--dialog__title-color, #000);
+  font-family: var(--accent-font, "Press Start 2P");
   font-weight: normal;
   font-size: 14px;
   line-height: 1.5;
