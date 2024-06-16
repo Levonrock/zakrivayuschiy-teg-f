@@ -25,6 +25,8 @@
   color: var(--main-color, #000);
   font-family: var(--main-font, "Inter", "sans-serif");
   font-weight: normal;
+  /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
+  font-variation-settings: 'wdth' var(--article-main-text-weight);
   background-color: var(--bc-color, #fff);
   background-image: repeating-linear-gradient(90deg,
       var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
@@ -238,6 +240,7 @@ a {
   filter: grayscale(0.7);
 }
 
+/*Тесты гооворят, что ни один из фильтров не множественный*/
 .filter-combination {
   filter: brightness(0.5) saturate(1.7) invert(180deg) blur(2px) sepia(0.8);
 }
