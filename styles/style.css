@@ -242,7 +242,7 @@ a {
 
 /*Тесты гооворят, что ни один из фильтров не множественный*/
 .filter-combination {
-  filter: brightness(0.5) saturate(1.7) invert(180deg) blur(2px) sepia(0.8);
+  filter: brightness(0.5) saturate(1.7) blur(2px) sepia(0.8);
 }
 
 .hue-rotate {
