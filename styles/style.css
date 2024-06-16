@@ -167,7 +167,6 @@ a {
   flex-direction: column;
   width: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
   border: 2px solid var(--main-color, #000);
-  border: 2px solid var(--main-color, #000);
   background-color: var(--bc-color, #fff);
 }
 
@@ -236,7 +235,7 @@ a {
 }
 
 .grayscale {
-  filter: grayscale(0, 7);
+  filter: grayscale(0.7);
 }
 
 .filter-combination {
@@ -247,7 +246,7 @@ a {
   filter: hue-rotate(90deg);
 }
 
-.invert {
+.saturate-half {
   filter: saturate(1.5);
 }
 
@@ -375,7 +374,6 @@ a {
 .button {
   position: relative;
   z-index: 1;
-  border: none;
   min-width: 130px;
   border: 2px solid var(--main-color, #000);
   overflow: hidden;
