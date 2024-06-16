@@ -441,7 +441,7 @@ a {
 }
 
 .footer__icon {
-  fill: var(--button-text-color, #fff);
+  color: var(--button-text-color, #fff);
   block-size: 28px;
   inline-size: 28px;
   mix-blend-mode: difference;
@@ -491,7 +491,7 @@ a {
 
 .dialog__icon {
   flex-shrink: 0;
-  fill: var(--dialog__icon-color, #000);
+  color: var(--dialog__icon-color, #000);
   block-size: 39px;
   inline-size: 39px;
 }
