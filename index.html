@@ -396,8 +396,8 @@
       </svg>
       <h2 class="dialog__title">вставьте дискету, чтобы продолжить</h2>
     </div>
-    <form method="dialog" class="dialog__form-button">
-      <button class="button button__accept"
+    <form class="dialog__form-button">
+      <button type="button" class="button button__accept" onclick="window['dialog-id'].close()"
         aria-controls="dialog-id">
         <span class="button__text">ОК</span>
       </button>
