@@ -22,23 +22,23 @@
 
 <body class="page">
   <header class="header">
-    <a href="#0" class="header__logo">&lt;/HTML&gt;</a>
+    <a href="#0" class="header__logo" aria-label="Лого-сайта">&lt;/HTML&gt;</a>
     <h1 class="header__title">Закрывающий тег</h1>
-    <nav class="theme-menu header__theme-menu">
+    <nav class="theme-menu header__theme-menu" role="menu">
       <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
-      <ul class="theme-menu__list">
+      <ul class="theme-menu__list" role="tablist">
         <li class="theme-menu__item">
-          <button type="button" data-theme="dark" class="theme-menu__button">
+          <button role="tab" aria-description="Изменить тему сайта на тёмную" type="button" data-theme="dark" class="theme-menu__button">
             Темно
           </button>
         </li>
         <li class="theme-menu__item">
-          <button type="button" data-theme="auto" disabled class="theme-menu__button">
+          <button role="tab" aria-decription="Тема сайты выбрана согласно системным настройкам пользователя" type="button" data-theme="auto" disabled class="theme-menu__button">
             Авто
           </button>
         </li>
         <li class="theme-menu__item">
-          <button type="button" data-theme="light" class="theme-menu__button">
+          <button role="tab"  aria-decription="изменить тему сайта на светлую" type="button" data-theme="light" class="theme-menu__button">
             Светло
           </button>
         </li>
@@ -49,7 +49,7 @@
     <section class="cards-content">
       <ul class="card__list">
         <li class="card__list-item">
-          <article class="article__content">
+          <article class="article__content" aria-describedby="zero__sprint">
             <h2 class="article__title">Фритрек и нулевой спринт: Подготовка к работе</h2>
             <div class="article__image-block">
               <span class="article__image-label">&lt;/HTML&gt;</span>
@@ -60,7 +60,7 @@
                   class="article__image invert">
               </picture>
             </div>
-            <div class="article__description">
+            <div class="article__description" id="zero__sprint">
               <p class="article__description-text">Это было самое начало пути. На этом этапе важно было проникнуться
                 основами и настроиться на учёбу. И, возможно, подумать, как новые знания могут повлиять на ваше будущее.
               </p>
@@ -69,7 +69,7 @@
                 браться за голову и осваивать неизведанное.</p>
             </div>
             <div class="article__controls">
-              <button id="like-button" class="card__icon-button" aria-labelledby="like-button">
+              <button aria-description="Поставить лайк статье, чтобы иметь возможность её сохранить" id="like-button" class="card__icon-button" aria-labelledby="like-button">
                 <svg class="like-icon" width="39" height="36" viewBox="0 0 39 36" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <g class="heart">
@@ -84,14 +84,14 @@
                     d="M36 13H39V16H36V13ZM27 27H30V30H27V27ZM18 33H21V36H18V33ZM9 27H12V30H9V27ZM24 0H27V3H24V0ZM33 3H36V6H33V3ZM3 3H6V6H3V3ZM12 0H15V3H12V0ZM0 13H3V16H0V13Z" />
                 </svg>
               </button>
-              <button type="button" class="button card__like-button">
+              <button aria-description="Поставить лайк статье, чтобы иметь возможность её сохранить" type="button" class="button card__like-button">
                 <span class="button__text">Like</span>
               </button>
             </div>
           </article>
         </li>
         <li class="card__list-item">
-          <article class="article__content">
+          <article class="article__content" aria-describedby="first__sprint">
             <h2 class="article__title">1 спринт: Я — чистый лист</h2>
             <div class="article__image-block">
               <span class="article__image-label">&lt;/HTML&gt;</span>
@@ -101,7 +101,7 @@
                   class="article__image grayscale">
               </picture>
             </div>
-            <div class="article__description">
+            <div class="article__description" id="first__sprint">
               <p class="article__description-text">На первых этапах мы работали со страхами и сомнениями, которые часто
                 испытывают новички. Один из них — страх перед чистым листом. Это, конечно же, намного сложнее, чем
                 боязнь куска бумаги. Часто за этим ощущением скрываются более глубокие вопросы: с чего начать? а вдруг
@@ -371,7 +371,7 @@
                     d="M36 13H39V16H36V13ZM27 27H30V30H27V27ZM18 33H21V36H18V33ZM9 27H12V30H9V27ZM24 0H27V3H24V0ZM33 3H36V6H33V3ZM3 3H6V6H3V3ZM12 0H15V3H12V0ZM0 13H3V16H0V13Z" />
                 </svg>
               </button>
-              <button type="button" class="button card__like-button">
+              <button aria-selected="false" type="button" class="button card__like-button">
                 <span class="button__text">Like</span>
               </button>
             </div>
@@ -381,7 +381,7 @@
     </section>
   </main>
   <footer class="footer">
-    <button type="button" class="button footer__button" onclick="window['dialog-id'].showModal()"
+    <button  aria-selected="false" aria-expanded="false" aria-description="показывать всплывающее окно для сохарнения выбранных статей"  type="button" class="button footer__button" onclick="window['dialog-id'].showModal()"
       aria-controls="dialog-id">
       <svg class="footer__icon" viewBox="0 0 29 28">
         <use href="./svg/floppy-icon.svg#floppy__icon"/>
@@ -396,7 +396,7 @@
       </svg>
       <h2 class="dialog__title">вставьте дискету, чтобы продолжить</h2>
     </div>
-    <form class="dialog__form-button">
+    <form method="get" class="dialog__form-button">
       <button type="button" class="button button__accept" onclick="window['dialog-id'].close()"
         aria-controls="dialog-id">
         <span class="button__text">ОК</span>
