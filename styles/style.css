@@ -18,17 +18,22 @@
   НИКАИХ изменений классов в меню не было совершенно. 
 */
 
+@import url(/scripts/like.js);
+
+@import url(/scripts/set-theme.js);
+
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: var(--main-color, #000);
-  font-family: var(--main-font, "Inter", "sans-serif");
+  font-family: var(--main-font, 'Inter', 'sans-serif');
   font-weight: normal;
   /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
-  font-variation-settings: 'wdth' var(--article-main-text-weight);
+  font-variation-settings: 'wdth' 400;
   background-color: var(--bc-color, #fff);
-  background-image: repeating-linear-gradient(90deg,
+  background-image: repeating-linear-gradient(
+      90deg,
       var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
       var(--rep-linear-gradient-color-second, transparent) 2px 4px
     ),
@@ -49,9 +54,10 @@
 }
 
 @supports (font-variation-settings: normal) {
+
   .page {
-    font-family: var(--main-variation-font, "Inter-Variable", "sans-serif");
-    font-variation-settings: "wght" var(--article-main-text-weight, 400);
+    font-family: var(--main-variation-font, 'Inter-Variable', 'sans-serif');
+    font-variation-settings: 'wght' var(--article-main-text-weight, 400);
   }
 }
 
@@ -63,11 +69,11 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   margin-block: 100px;
   border: 2px solid #000;
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
-  font-family: var(--accent-font, "Press Start 2P");
+  font-family: var(--accent-font, 'Press Start 2P');
   background-color: var(--bc-color, #fff);
 }
 
@@ -120,12 +126,14 @@ a {
 }
 
 .theme-menu__button::after {
-  content: "";
+  content: '';
   display: block;
-  margin-top: 2px;
+  margin-block-start: 2px;
   opacity: 0.6;
   color: var(--main-color, #000);
-  transition: width 0.3s, background-color 0.3s;
+  transition:
+    width 0.3s,
+    background-color 0.3s;
   scale: 0;
   block-size: 2px;
 }
@@ -138,12 +146,14 @@ a {
 .theme-menu__button:focus-visible::after {
   opacity: 0.6;
   color: var(--main-color, #000);
-  transition: width 0.3s, background-color 0.3s linear;
+  transition:
+    width 0.3s,
+    background-color 0.3s linear;
   scale: 1;
 }
 
 .theme-menu__button:disabled::before {
-  content: "▶";
+  content: '▶';
   position: absolute;
   opacity: 0.6;
   color: var(--main-color, #000);
@@ -151,6 +161,7 @@ a {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .theme-menu__button:disabled::before {
     animation: movement 0.5s infinite ease-in-out alternate;
   }
@@ -167,7 +178,7 @@ a {
 .card__list-item {
   display: flex;
   flex-direction: column;
-  width: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+  inline-size: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
   border: 2px solid var(--main-color, #000);
   background-color: var(--bc-color, #fff);
 }
@@ -183,8 +194,9 @@ a {
 }
 
 @supports (font-variation-settings: normal) {
+
   .article__title {
-    font-variation-settings: "wght" var(--article-title-weight, 700);
+    font-variation-settings: 'wght' var(--article-title-weight, 700);
   }
 }
 
@@ -194,21 +206,24 @@ a {
 
 .article__image-label {
   position: absolute;
-  top: 22px;
-  right: 11px;
+  inset-block-start: 22px;
+  inset-inline-end: 11px;
   z-index: 1;
   opacity: 0.5;
   color: #000;
-  font-family: var(--accent-font, "Press Start 2P");
+  font-family: var(--accent-font, 'Press Start 2P');
   font-size: 14px;
   line-height: 14px;
-  text-shadow: -1px 0px var(--text-stroke-color, #fff),
-    0 1px var(--text-stroke-color, #fff), 1px 0 var(--text-stroke-color, #fff),
+  text-shadow:
+    -1px 0 var(--text-stroke-color, #fff),
+    0 1px var(--text-stroke-color, #fff),
+    1px 0 var(--text-stroke-color, #fff),
     0 -1px var(--text-stroke-color, #fff);
   mix-blend-mode: hard-light;
 }
 
 @supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+
   .article__image-label {
     text-shadow: none;
     -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
@@ -241,6 +256,7 @@ a {
 }
 
 /*Тесты гооворят, что ни один из фильтров не множественный*/
+
 .filter-combination {
   filter: brightness(0.5) saturate(1.7) blur(2px) sepia(0.8);
 }
@@ -255,7 +271,7 @@ a {
 
 .article__image {
   display: block;
-  width: 100%;
+  inline-size: 100%;
   height: auto;
   border-block-end: 2px solid var(--main-color, #000);
   object-fit: cover;
@@ -270,12 +286,13 @@ a {
 }
 
 @media (min-width: 376px) {
+
   .article__description {
     padding-block-start: 30px;
   }
 }
 
-.article__description-text+.article__description-text {
+.article__description-text + .article__description-text {
   margin-block-start: 27px;
 }
 
@@ -289,9 +306,10 @@ a {
 }
 
 /* начало анимации для Heart*/
+
 .card__icon-button {
-  width: 39px;
-  height: 36px;
+  inline-size: 39px;
+  block-size: 36px;
   margin-block-start: 3px;
   border: none;
   padding: 0;
@@ -350,6 +368,7 @@ a {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .like-icon.is-liked .heart {
     animation: scale-icon-heart 0.3s ease-in 0.1s alternate;
   }
@@ -377,10 +396,10 @@ a {
 .button {
   position: relative;
   z-index: 1;
-  min-width: 130px;
+  min-inline-size: 130px;
   border: 2px solid var(--main-color, #000);
   overflow: hidden;
-  font-family: var(--accent-font, "Press Start 2P");
+  font-family: var(--accent-font, 'Press Start 2P');
   font-size: 14px;
   line-height: 0.9;
   text-align: center;
@@ -396,7 +415,7 @@ a {
 }
 
 .button::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -439,7 +458,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  min-width: 306px;
+  min-inline-size: 306px;
   padding-block: 15px;
 }
 
@@ -456,7 +475,7 @@ a {
 }
 
 .dialog::backdrop {
-  background-color: rgb(0, 0, 0, 0.6);
+  background-color: rgb(0 0 0 / 0.6);
   filter: blur(7px);
 }
 
@@ -476,6 +495,7 @@ a {
 }
 
 @media (min-width: 376px) {
+
   .dialog {
     max-inline-size: 353px;
   }
@@ -507,7 +527,7 @@ a {
 
 .dialog__title {
   color: var(--dialog__title-color, #000);
-  font-family: var(--accent-font, "Press Start 2P");
+  font-family: var(--accent-font, 'Press Start 2P');
   font-weight: normal;
   font-size: 14px;
   line-height: 1.5;

@@ -3,25 +3,28 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');*/
 
 @font-face {
-  font-family: 'Inter-Variable';
-  src: url(./Inter-Variable.woff2) format('woff2 supports variations'), 
-      url(./Inter-Variable.woff2) format('woff2-variations');
+  font-family: Inter-Variable;
+  src:
+    url(./Inter-Variable.woff2) format('woff2 supports variations'),
+    url(./Inter-Variable.woff2) format('woff2-variations');
   font-weight: 400 785;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url(./interregular.woff2) format('woff2'),
-     url(./interregular.woff) format('woff');
+  font-family: Inter;
+  src:
+    url(./interregular.woff2) format('woff2'),
+    url(./interregular.woff) format('woff');
   font-weight: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url(./interbold.woff2) format('woff2'),
-  url(./interbold.woff) format('woff');
+  font-family: Inter;
+  src:
+    url(./interbold.woff2) format('woff2'),
+    url(./interbold.woff) format('woff');
   font-weight: 700;
   font-display: swap;
 }

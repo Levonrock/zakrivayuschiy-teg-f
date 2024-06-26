@@ -6,6 +6,7 @@
 */
 
 @media (prefers-color-scheme: light) {
+
   :root {
     --main-font: 'Inter';
     --main-variation-font: 'Inter-Variable';
@@ -29,25 +30,26 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   :root {
     --main-font: 'Inter';
     --main-variation-font: 'Inter-Variable';
     --accent-font: 'Press Start 2P';
     --bc-color: #000;
-    --main-color: #00CC14;
+    --main-color: #00cc14;
     --article-main-text-weight: 465;
     --article-title-weight: 785;
     --rep-linear-gradient-color-first: #000;
     --rep-linear-gradient-color-second: transparent;
     --linear-gradient-color-first: #007f0c;
     --linear-gradient-color-second: #004306;
-    --text-stroke-color: #00CC14;
-    --heart__contour-color: #00CC14;
+    --text-stroke-color: #00cc14;
+    --heart__contour-color: #00cc14;
     --heart__sparks-color: red;
     --heart__color: red;
-    --button-text-color: #00CC14;
-    --dialog__icon-color: #00CC14;
-    --dialog__title-color: #00CC14;
+    --button-text-color: #00cc14;
+    --dialog__icon-color: #00cc14;
+    --dialog__title-color: #00cc14;
   }
 }
 
@@ -77,20 +79,18 @@
   --main-variation-font: 'Inter-Variable';
   --accent-font: 'Press Start 2P';
   --bc-color: #000;
-  --main-color: #00CC14;
+  --main-color: #00cc14;
   --article-main-text-weight: 465;
   --article-title-weight: 785;
   --rep-linear-gradient-color-first: #000;
   --rep-linear-gradient-color-second: transparent;
   --linear-gradient-color-first: #007f0c;
   --linear-gradient-color-second: #004306;
-  --text-stroke-color: #00CC14;
-  --heart__contour-color: #00CC14;
+  --text-stroke-color: #00cc14;
+  --heart__contour-color: #00cc14;
   --heart__sparks-color: red;
   --heart__color: red;
-  --button-text-color: #00CC14;
-  --dialog__icon-color: #00CC14;
-  --dialog__title-color: #00CC14;
+  --button-text-color: #00cc14;
+  --dialog__icon-color: #00cc14;
+  --dialog__title-color: #00cc14;
 }
-
-
