@@ -170,9 +170,10 @@ a {
 /*Вёрстка main*/
 
 .card__list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 50px;
+  /*   grid-template-rows: repeat(auto-fit, minmax(min(100%,), 1fr) );
+*/
 }
 
 .card__list-item {
