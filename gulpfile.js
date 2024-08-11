@@ -24,7 +24,7 @@ function scss() {
   const plugins = [
       autoprefixer(),
       mediaquery(),
-      //cssnano()
+      cssnano()
   ]
   return gulp.src('src/layouts/default.scss')
         //.pipe(plumber())
@@ -32,7 +32,7 @@ function scss() {
         .pipe(concat('bundle.css'))
         .pipe(postcss(plugins))
         .pipe(gulp.dest('dist/'))
-        //.pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 }
 
 function pug() {
@@ -41,7 +41,7 @@ function pug() {
           pretty: true
         }))
         .pipe(gulp.dest('dist/'))
-        //.pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({stream: true}));
 }
 
 function html() {
