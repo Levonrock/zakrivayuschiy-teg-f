@@ -1,0 +1,7 @@
+@mixin image {  
+  display: block;
+  inline-size: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+} 

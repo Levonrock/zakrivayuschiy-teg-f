@@ -1,0 +1,11 @@
+include ../button/menu-button/button
+include ../../data/headerData.pug
+
+header.header(aria-label="Шапка сайта")
+  a.header__logo(href="#0", aria-label="Лого-сайта") &lt;/HTML&gt;
+  h1.header__title Закрывающий тег
+  nav(class="theme-menu header__theme-menu", role="menu")
+    ul.theme-menu__list(role="tablist")
+      each button in headerButtons      
+        li.theme-menu__item
+          +menu-button(button.theme, button.ariaDescription, button.buttonText)

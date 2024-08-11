@@ -1,0 +1,23 @@
+@mixin buttonLike {
+  min-inline-size: 130px;
+  border: 2px solid var(--main-color, #000);
+  overflow: hidden;
+  font-family: var(--accent-font, 'Press Start 2P');
+  font-size: 14px;
+  line-height: 0.9;
+  text-align: center;
+  background-color: var(--bc-color, #fff);
+  transition: box-shadow 0.3s;
+  appearance: none;
+}
+
+@mixin laneButton {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  transform: translateX(-100%);
+  block-size: 100%;
+  inline-size: 100%;
+}

@@ -1,0 +1,95 @@
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --main-font: 'Inter';
+    --main-variation-font: 'Inter-Variable';
+    --accent-font: 'Press Start 2P';
+    --bc-color: #fff;
+    --main-color: #000;
+    --article-main-text-weight: 400;
+    --article-title-weight: 700;
+    --rep-linear-gradient-color-first: #d3d3d3;
+    --rep-linear-gradient-color-second: transparent;
+    --linear-gradient-color-first: #e7e7e7;
+    --linear-gradient-color-second: #1a1a1a;
+    --text-stroke-color: #fff;
+    --heart__contour-color: black;
+    --heart__sparks-color: red;
+    --heart__color: red;
+    --button-text-color: #fff;
+    --dialog__icon-color: #000;
+    --dialog__title-color: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --main-font: 'Inter';
+    --main-variation-font: 'Inter-Variable';
+    --accent-font: 'Press Start 2P';
+    --bc-color: #000;
+    --main-color: #00cc14;
+    --article-main-text-weight: 465;
+    --article-title-weight: 785;
+    --rep-linear-gradient-color-first: #000;
+    --rep-linear-gradient-color-second: transparent;
+    --linear-gradient-color-first: #007f0c;
+    --linear-gradient-color-second: #004306;
+    --text-stroke-color: #00cc14;
+    --heart__contour-color: #00cc14;
+    --heart__sparks-color: red;
+    --heart__color: red;
+    --button-text-color: #00cc14;
+    --dialog__icon-color: #00cc14;
+    --dialog__title-color: #00cc14;
+  }
+}
+
+:root.theme-light {
+  --main-font: 'Inter';
+  --main-variation-font: 'Inter-Variable';
+  --accent-font: 'Press Start 2P';
+  --bc-color: #fff;
+  --main-color: #000;
+  --article-main-text-weight: 400;
+  --article-title-weight: 700;
+  --rep-linear-gradient-color-first: #d3d3d3;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #e7e7e7;
+  --linear-gradient-color-second: #1a1a1a;
+  --text-stroke-color: #fff;
+  --heart__contour-color: black;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #fff;
+  --dialog__icon-color: #000;
+  --dialog__title-color: #000;
+}
+
+:root.theme-dark {
+  --main-font: 'Inter';
+  --main-variation-font: 'Inter-Variable';
+  --accent-font: 'Press Start 2P';
+  --bc-color: #000;
+  --main-color: #00cc14;
+  --article-main-text-weight: 465;
+  --article-title-weight: 785;
+  --rep-linear-gradient-color-first: #000;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #007f0c;
+  --linear-gradient-color-second: #004306;
+  --text-stroke-color: #00cc14;
+  --heart__contour-color: #00cc14;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #00cc14;
+  --dialog__icon-color: #00cc14;
+  --dialog__title-color: #00cc14;
+}

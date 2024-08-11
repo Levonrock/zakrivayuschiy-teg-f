@@ -1,0 +1,18 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="color-scheme", content="light dark")
+    title Закрывающий тег
+    link(rel="icon", href="../svg/favicon.ico", sizes="any")
+    link(rel="icon", href="../svg/fav.svg", type="image/svg+xml")
+    link(rel="apple-touch-icon", href="../svg/favicon.png")
+    link(rel="stylesheet", href="./bundle.css")
+    script(src="./scripts/set-theme.js")
+  body.page 
+    include ../components/header/header
+    block content
+    include ../components/footer/footer
+    include ../components/dialog/dialog 
+    script(src="./scripts/like.js")

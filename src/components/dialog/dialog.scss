@@ -1,0 +1,58 @@
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: 0;
+}
+
+.dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.6);
+  filter: blur(7px);
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border-color: var(--main-color, #fff);
+  padding-inline: 40px;
+  padding-block: 30px;
+  background-color: var(--bc-color, #fff);
+  min-inline-size: 341px;
+}
+
+.dialog__icon {
+  flex-shrink: 0;
+  color: var(--dialog__icon-color, #000);
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+.dialog__block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__title {
+  color: var(--dialog__title-color, #000);
+  font-family: var(--accent-font, 'Press Start 2P');
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.button__accept {
+  text-align: center;
+  min-inline-size: 257px;
+  min-block-size: 38px;
+}
+
+@media (min-width: 376px) {
+  .dialog {
+    max-inline-size: 353px;
+  }
+}

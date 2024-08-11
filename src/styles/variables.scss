@@ -1,0 +1,21 @@
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --main-font: 'Inter';
+  --main-variation-font: 'Inter-Variable';
+  --accent-font: 'Press Start 2P';
+  --bc-color: #fff;
+  --main-color: #000;
+  --article-main-text-weight: 400;
+  --article-title-weight: 700;
+  --rep-linear-gradient-color-first: #d3d3d3;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #e7e7e7;
+  --linear-gradient-color-second: #1a1a1a;
+  --text-stroke-color: #fff;
+  --heart__contour-color: black;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #fff;
+  --dialog__icon-color: #000;
+  --dialog__title-color: #000;
+}

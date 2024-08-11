@@ -1,0 +1,23 @@
+@import '../button/icon-button/icon-buttonMixin';
+
+.controls {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+  margin-inline-end: 25.6px;
+}
+
+.card__icon-button {
+  margin-block-start: 3px;
+  @include iconButton;
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--main-color, #000);
+  }
+}
+
+@import '../button/icon-button/like-icon/like-icon';
+@import '../button/like-button/like-button'
+

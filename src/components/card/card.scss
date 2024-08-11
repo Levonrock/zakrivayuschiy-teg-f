@@ -1,0 +1,107 @@
+@import './image/image';
+@import './__description/description';
+
+.card {
+  &__title {
+    border-block-end: 2px solid var(--main-color, #000);
+    padding-inline-start: 10px;
+    padding-inline-end: 24px;
+    padding-block: 5px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  &__block {
+    position: relative;
+    &-label {
+      position: absolute;
+      inset-block-start: 22px;
+      inset-inline-end: 11px;
+      z-index: 1;
+      opacity: 0.5;
+      color: #000;
+      font-family: var(--accent-font, 'Press Start 2P');
+      font-size: 14px;
+      line-height: 14px;
+      text-shadow:
+        -1px 0 var(--text-stroke-color, #fff),
+        0 1px var(--text-stroke-color, #fff),
+        1px 0 var(--text-stroke-color, #fff),
+        0 -1px var(--text-stroke-color, #fff);
+      mix-blend-mode: hard-light;
+    }
+    &-picture {
+      border-block-end: 2px solid var(--main-color, #000);
+    }
+  }
+  &__description {
+    @include descriptionCard;
+    &-text + &-text {
+      margin-block-start: 27px;
+    }
+  }
+}
+
+.card__image {
+  @include image;
+}
+
+@supports (font-variation-settings: normal) {
+  .card__title {
+    font-variation-settings: 'wght' var(--article-title-weight, 700);
+  }
+}
+@supports ((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .card__block-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
+    text-stroke: 1px var(--text-stroke-color, #fff);
+  }
+}
+// файл со стилями для блока с кнопками 
+@import '../controls/controls';
+
+@media (min-width: 376px) {
+  .card__description {
+    padding-block-start: 30px;
+  }
+}
+
+@media (min-width: 376px) {
+  .card__description {
+    padding-block-start: 30px;
+  }
+}
+
+// фильтры для изображений
+.invert {
+  filter: invert(0.1);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.sepia {
+  filter: sepia(0.5);
+}
+
+.saturate {
+  filter: saturate(80%);
+}
+
+.grayscale {
+  filter: grayscale(0.7);
+}
+
+.filter-combination {
+  filter: brightness(0.5) saturate(1.7) blur(2px) sepia(0.8);
+}
+
+.hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.saturate-half {
+  filter: saturate(1.5);
+}

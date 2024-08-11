@@ -1,0 +1,53 @@
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--main-color, #000);
+  font-family: var(--main-font, 'Inter', 'sans-serif');
+  font-weight: normal;
+  /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
+  background-color: var(--bc-color, #fff);
+  background-image: repeating-linear-gradient(
+      90deg,
+      var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
+      var(--rep-linear-gradient-color-second, transparent) 2px 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px,
+      var(--rep-linear-gradient-color-second, transparent) 2px 4px
+    ),
+    linear-gradient(
+      to bottom,
+      var(--linear-gradient-color-first, #e7e7e7) 0.01%,
+      var(--linear-gradient-color-second, #1a1a1a)
+    );
+  background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+}
+
+@supports (font-variation-settings: normal) {
+
+  .page {
+    font-family: var(--main-variation-font, 'Inter-Variable', 'sans-serif');
+    font-variation-settings: 'wght' var(--article-main-text-weight, 400);
+  }
+}

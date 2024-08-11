@@ -1,0 +1,13 @@
+include ../card/__description/__descriptionMixin
+include ../../data/cardsData
+
+mixin card-item(card)
+  article.card
+    h2.card__title= card.title
+    div.card__block
+      span.card__block-label= card.label
+      picture.card__block-picture
+        source(srcset=card.imgWebp, type="image/webp")
+        img.card__image(class=card.filterImage, src=card.image, alt=card.imageDesc, loading="lazy")
+    +card-description(descriptionList[card.cardDesc])
+    include ../controls/controls

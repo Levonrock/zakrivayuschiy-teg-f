@@ -1,0 +1,30 @@
+@import '../button/footer-button/fotter-button';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 50px;
+  margin-block-end: 100px; 
+  &__button {
+    @include fButton;
+    &-icon {
+      color: var(--button-text-color, #fff);
+      block-size: 28px;
+      inline-size: 28px;
+      mix-blend-mode: difference;
+    }
+  }
+}
+
+@media (min-width: 376px) {
+  .footer__button {
+    flex-direction: row;
+    justify-content: center;
+    padding-block: 15px;
+  }
+
+  .footer__button-icon {
+    block-size: 21px;
+    inline-size: 21px;
+  }
+}

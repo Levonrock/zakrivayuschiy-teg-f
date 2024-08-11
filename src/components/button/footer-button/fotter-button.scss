@@ -1,0 +1,8 @@
+@mixin fButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-inline-size: 306px;
+  padding-block: 15px;
+}

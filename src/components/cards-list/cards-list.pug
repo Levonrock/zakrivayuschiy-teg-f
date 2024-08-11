@@ -1,0 +1,10 @@
+include ../../components/card/card
+include ../../data/cardsData
+
+ul.cards-list
+  if  cardsData.length > 0
+    each card in cardsData 
+      li.cards-list__item
+        +card-item(card) 
+
+  

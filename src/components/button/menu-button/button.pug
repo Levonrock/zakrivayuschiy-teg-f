@@ -1,0 +1,9 @@
+mixin menu-button(theme, ariaDescription, buttonText)
+  - var isDisabled = theme === 'auto'
+  button.theme-menu__button(
+    role="tab", 
+    type="button", 
+    data-theme=theme, 
+    aria-description=ariaDescription,
+    disabled=isDisabled ? true : null
+  )= buttonText

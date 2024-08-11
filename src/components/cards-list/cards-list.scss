@@ -1,0 +1,13 @@
+.cards-list {
+  display: grid;
+  gap: 50px;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    inline-size: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+    border: 2px solid var(--main-color, #000);
+    background-color: var(--bc-color, #fff);
+  }
+}
+
+@import '../card/card'
