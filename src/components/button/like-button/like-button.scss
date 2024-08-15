@@ -2,7 +2,6 @@
 
 .button {
   @include buttonLike;
-  box-shadow: 2px 2px 0 var(--main-color, #000); 
   &::before {
     @include laneButton;
     background: var(--main-color, #000);
@@ -28,6 +27,6 @@
   position: relative;
   z-index: 1;
   margin-block-end: 25px;
-  padding-inline: 2.5em;
-  padding-block: 0.8em;
+  padding-inline: 37px;
+  padding-block: 12.5px;
 }

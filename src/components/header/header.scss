@@ -4,7 +4,7 @@
   align-items: center;
   inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   margin-block: 100px;
-  border: 2px solid #000;
+  border: 2px solid var(--header-border-color, #000);
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   font-family: var(--accent-font, 'Press Start 2P');
   background-color: var(--bc-color, #fff);
@@ -60,9 +60,11 @@
       display: block;
       margin-block-start: 2px;
       opacity: 0.6;
-      color: var(--main-color, #000);
-      transition: width 0.3s, background-color 0.3s;
-      scale: 0;
+      background-color: var(--main-color, #000);
+      transition: transform 0.3s, background-color 0.3s;
+      transform: scaleX(0);
+      transform-origin: 0;
+      inline-size: 100%;
       block-size: 2px;
     }
     &:focus {
@@ -71,9 +73,9 @@
     }
     &:focus-visible::after {
       opacity: 0.6;
-      color: var(--main-color, #000);
-      transition: width 0.3s, background-color 0.3s linear;
-      scale: 1;
+      background-color: var(--main-color, #000);
+      transition: transform 0.3s, background-color 0.3s linear;
+      transform: scaleX(1);
     }
   }
 }

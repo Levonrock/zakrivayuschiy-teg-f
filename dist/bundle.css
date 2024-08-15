@@ -1,0 +1,742 @@
+@charset "UTF-8";
+
+/* В этом файле вы импортируете все шрифты для сайта. Один из них вариативный и требует особенной настройки */
+
+@font-face {
+  font-family: "Inter-Variable";
+  src: url("fonts/Inter-Variable.woff2") format("woff2 supports variations"), url("fonts/Inter-Variable.woff2") format("woff2-variations");
+  font-weight: 400 785;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/interregular.woff2") format("woff2"), url("fonts/interregular.woff") format("woff");
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/interbold.woff2") format("woff2"), url("fonts/interbold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("fonts/PressStart2P-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+/* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --main-font: "Inter";
+  --main-variation-font: "Inter-Variable";
+  --accent-font: "Press Start 2P";
+  --bc-color: #fff;
+  --header-border-color: #000;
+  --main-color: #000;
+  --article-main-text-weight: 400;
+  --article-title-weight: 700;
+  --rep-linear-gradient-color-first: #d3d3d3;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #e7e7e7;
+  --linear-gradient-color-second: #1a1a1a;
+  --text-stroke-color: #fff;
+  --heart__contour-color: black;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #fff;
+  --dialog__icon-color: #000;
+  --dialog__title-color: #000;
+}
+
+/* В этом файле уже написаны некоторые базовые стили, которые сбрасывают или преобразуют дефольное браузерное поведение.
+Здесь же лежит утилитарный класс visually-hidden на случай, если нужно скрыть какой-то элемент, но оставить доступным для скринридера.
+Вы можете изменять этот файл или дополнять. Но скорее всего, вам это не потребуется. */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input {
+  color: currentColor;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Здесь вы напишете основную часть стилей страницы.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+
+*/
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--main-color, #000);
+  font-family: var(--main-font, "Inter", sans-serif);
+  font-weight: normal;
+  /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
+  background-color: var(--bc-color, #fff);
+  background-image: repeating-linear-gradient(90deg, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px), repeating-linear-gradient(to bottom, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px), linear-gradient(to bottom, var(--linear-gradient-color-first, #e7e7e7) 0.01%, var(--linear-gradient-color-second, #1a1a1a));
+  background-size: cover;
+  background-attachment: fixed;
+  min-inline-size: 320px;
+  min-block-size: 100dvb;
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: var(--main-variation-font, "Inter-Variable", sans-serif);
+    font-variation-settings: "wght" var(--article-main-text-weight, 400);
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
+  margin-block: 100px;
+  border: 2px solid var(--header-border-color, #000);
+  padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  font-family: var(--accent-font, "Press Start 2P");
+  background-color: var(--bc-color, #fff);
+}
+
+.header__logo {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__title {
+  margin-block: 20px 25px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.theme-menu {
+  align-self: start;
+  padding-block-end: 20px;
+}
+
+.theme-menu__list {
+  margin-inline-start: clamp(9.65rem, 6.0819rem + 15.1174vw, 19.6875rem);
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.theme-menu__item:not(:last-of-type) {
+  margin-block-end: 10px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  padding: 0;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: opacity 0.3s;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  animation: none;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  opacity: 0.6;
+  color: var(--main-color, #000);
+  inset-inline-start: -18.5px;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  margin-block-start: 2px;
+  opacity: 0.6;
+  background-color: var(--main-color, #000);
+  transition: transform 0.3s, background-color 0.3s;
+  transform: scaleX(0);
+  transform-origin: 0;
+  inline-size: 100%;
+  block-size: 2px;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  opacity: 0.6;
+  background-color: var(--main-color, #000);
+  transition: transform 0.3s, background-color 0.3s linear;
+  transform: scaleX(1);
+}
+
+.cards-list {
+  display: grid;
+  gap: 50px;
+}
+
+.cards-list__item {
+  display: flex;
+  flex-direction: column;
+  inline-size: clamp(23.4375rem, 16.3732rem + 30.1408vw, 43.5rem);
+  border: 2px solid var(--main-color, #000);
+  background-color: var(--bc-color, #fff);
+}
+
+.card__title {
+  border-block-end: 2px solid var(--main-color, #000);
+  padding-inline-start: 10px;
+  padding-inline-end: 24px;
+  padding-block: 5px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.card__block {
+  position: relative;
+}
+
+.card__block-label {
+  position: absolute;
+  inset-block-start: 22px;
+  inset-inline-end: 11px;
+  z-index: 1;
+  opacity: 0.5;
+  color: #000;
+  font-family: var(--accent-font, "Press Start 2P");
+  font-size: 14px;
+  line-height: 14px;
+  text-shadow: -1px 0 var(--text-stroke-color, #fff), 0 1px var(--text-stroke-color, #fff), 1px 0 var(--text-stroke-color, #fff), 0 -1px var(--text-stroke-color, #fff);
+  mix-blend-mode: hard-light;
+}
+
+.card__block-picture {
+  border-block-end: 2px solid var(--main-color, #000);
+}
+
+.card__description {
+  padding-inline: 25px;
+  padding-block: 25px;
+  font-size: 18px;
+  line-height: 1.17;
+}
+
+.card__description-text + .card__description-text {
+  margin-block-start: 27px;
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+@supports (font-variation-settings: normal) {
+  .card__title {
+    font-variation-settings: "wght" var(--article-title-weight, 700);
+  }
+}
+
+@supports (text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000) {
+  .card__block-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--text-stroke-color, #fff);
+    text-stroke: 1px var(--text-stroke-color, #fff);
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: end;
+  gap: 6px;
+  margin-inline-end: 25.6px;
+}
+
+.card__icon-button {
+  margin-block-start: 3px;
+  transition: border-color 0.3s ease;
+  inline-size: 39px;
+  block-size: 36px;
+  padding: 0;
+  appearance: none;
+  border: 2px solid transparent;
+  background-color: transparent;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--main-color, #000);
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon .core {
+  transition: fill 0.3s linear 0.03s;
+}
+
+.like-icon .main-body {
+  fill: var(--bc-color, #fff);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--heart__contour-color, black);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon:hover .core {
+  fill: var(--heart__contour-color, black);
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--heart__color, red);
+}
+
+.like-icon:active .core {
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart__color, red);
+  transition: fill 0.3s linear 0.06s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart__color, red);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart__color, red);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon .contour {
+  fill: var(--heart__contour-color, #000);
+  transition: fill 0.1 linear;
+}
+
+.button {
+  min-inline-size: 130px;
+  border: 2px solid var(--main-color, #000);
+  overflow: hidden;
+  font-family: var(--accent-font, "Press Start 2P");
+  font-size: 14px;
+  line-height: 0.9;
+  text-align: center;
+  background-color: var(--bc-color, #fff);
+  transition: box-shadow 0.3s;
+  appearance: none;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  transform: translateX(-100%);
+  block-size: 100%;
+  inline-size: 100%;
+  background: var(--main-color, #000);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--main-color, #000);
+}
+
+.button__text {
+  color: var(--button-text-color, #fff);
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  position: relative;
+  z-index: 1;
+  margin-block-end: 25px;
+  padding-inline: 37px;
+  padding-block: 12.5px;
+}
+
+.invert {
+  filter: invert(0.1);
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.sepia {
+  filter: sepia(0.5);
+}
+
+.saturate {
+  filter: saturate(80%);
+}
+
+.grayscale {
+  filter: grayscale(0.7);
+}
+
+.filter-combination {
+  filter: brightness(0.5) saturate(1.7) blur(2px) sepia(0.8);
+}
+
+.hue-rotate {
+  filter: hue-rotate(90deg);
+}
+
+.saturate-half {
+  filter: saturate(1.5);
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 50px;
+  margin-block-end: 100px;
+}
+
+.block__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-inline-size: 306px;
+  padding-block: 15px;
+}
+
+.block__button-icon {
+  color: var(--button-text-color, #fff);
+  block-size: 28px;
+  inline-size: 28px;
+  mix-blend-mode: difference;
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dialog {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border-color: var(--main-color, #fff);
+  padding-inline: 40px;
+  padding-block: 30px;
+  background-color: var(--bc-color, #fff);
+  min-inline-size: 341px;
+}
+
+.dialog__icon {
+  flex-shrink: 0;
+  color: var(--dialog__icon-color, #000);
+  block-size: 39px;
+  inline-size: 39px;
+}
+
+.dialog__block {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__title {
+  color: var(--dialog__title-color, #000);
+  font-family: var(--accent-font, "Press Start 2P");
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.button__accept {
+  text-align: center;
+  min-inline-size: 257px;
+  min-block-size: 38px;
+}
+
+.button__accept .button__text {
+  text-transform: uppercase;
+}
+
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
+*/
+
+@keyframes movement {
+  from {
+    translate: 0;
+  }
+
+  to {
+    translate: 4px;
+  }
+}
+
+@keyframes scale-icon-heart {
+  from {
+    scale: 1;
+  }
+
+  to {
+    scale: 1.5;
+  }
+}
+
+@keyframes sparks-fill {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* В этом файле вы опишете значения переменных в разных цветовых схемах.
+Придерживайтесь такого именования классов:
+✦ theme-dark — класс тёмной темы
+✦ theme-light — класс светлой темы
+✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
+*/
+
+:root.theme-light {
+  --main-font: "Inter";
+  --main-variation-font: "Inter-Variable";
+  --accent-font: "Press Start 2P";
+  --bc-color: #fff;
+  --header-border-color: #000;
+  --main-color: #000;
+  --article-main-text-weight: 400;
+  --article-title-weight: 700;
+  --rep-linear-gradient-color-first: #d3d3d3;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #e7e7e7;
+  --linear-gradient-color-second: #1a1a1a;
+  --text-stroke-color: #fff;
+  --heart__contour-color: black;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #fff;
+  --dialog__icon-color: #000;
+  --dialog__title-color: #000;
+}
+
+:root.theme-dark {
+  --main-font: "Inter";
+  --main-variation-font: "Inter-Variable";
+  --accent-font: "Press Start 2P";
+  --bc-color: #000;
+  --header-border-color: #00cc14;
+  --main-color: #00cc14;
+  --article-main-text-weight: 465;
+  --article-title-weight: 785;
+  --rep-linear-gradient-color-first: #000;
+  --rep-linear-gradient-color-second: transparent;
+  --linear-gradient-color-first: #007f0c;
+  --linear-gradient-color-second: #004306;
+  --text-stroke-color: #00cc14;
+  --heart__contour-color: #00cc14;
+  --heart__sparks-color: red;
+  --heart__color: red;
+  --button-text-color: #00cc14;
+  --dialog__icon-color: #00cc14;
+  --dialog__title-color: #00cc14;
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .theme-menu__button:disabled::before {
+    animation: movement 0.5s infinite ease-in-out alternate;
+  }
+  .like-icon.is-liked .heart {
+    animation: scale-icon-heart 0.3s ease-in 0.1s alternate;
+  }
+
+  .like-icon.is-liked .sparks {
+    animation: sparks-fill 0.3s ease-in 0.3s alternate;
+  }
+}
+
+@media (min-width: 376px){
+  .card__description {
+    padding-block-start: 30px;
+  }
+  .card__description {
+    padding-block-start: 30px;
+  }
+  .block__button {
+    flex-direction: row;
+    justify-content: center;
+    padding-block: 15px;
+  }
+
+  .block__button-icon {
+    block-size: 21px;
+    inline-size: 21px;
+  }
+  .dialog {
+    max-inline-size: 353px;
+  }
+}
+
+@media (prefers-color-scheme: light){
+  :root.theme-light {
+    --main-font: "Inter";
+    --main-variation-font: "Inter-Variable";
+    --accent-font: "Press Start 2P";
+    --header-border-color: #000;
+    --bc-color: #fff;
+    --main-color: #000;
+    --article-main-text-weight: 400;
+    --article-title-weight: 700;
+    --rep-linear-gradient-color-first: #d3d3d3;
+    --rep-linear-gradient-color-second: transparent;
+    --linear-gradient-color-first: #e7e7e7;
+    --linear-gradient-color-second: #1a1a1a;
+    --text-stroke-color: #fff;
+    --heart__contour-color: black;
+    --heart__sparks-color: red;
+    --heart__color: red;
+    --button-text-color: #fff;
+    --dialog__icon-color: #000;
+    --dialog__title-color: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  :root.theme-dark {
+    --main-font: "Inter";
+    --main-variation-font: "Inter-Variable";
+    --accent-font: "Press Start 2P";
+    --bc-color: #000;
+    --header-border-color: #00cc14;
+    --main-color: #00cc14;
+    --article-main-text-weight: 465;
+    --article-title-weight: 785;
+    --rep-linear-gradient-color-first: #000;
+    --rep-linear-gradient-color-second: transparent;
+    --linear-gradient-color-first: #007f0c;
+    --linear-gradient-color-second: #004306;
+    --text-stroke-color: #00cc14;
+    --heart__contour-color: #00cc14;
+    --heart__sparks-color: red;
+    --heart__color: red;
+    --button-text-color: #00cc14;
+    --dialog__icon-color: #00cc14;
+    --dialog__title-color: #00cc14;
+  }
+}
