@@ -12,7 +12,9 @@
     "fixAll": "npm run format && npm run lintfix",
     "build": "gulp build",
     "dev": "gulp",
-    "fixAndBuild": "npm run fixAll && npm run build"
+    "fixAndBuild": "npm run fixAll && npm run build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.4",
     "del": "^6.0.0",
+    "gh-pages": "^6.1.1",
     "gulp": "^5.0.0",
     "gulp-concat-css": "^3.1.0",
     "gulp-plumber": "^1.2.1",

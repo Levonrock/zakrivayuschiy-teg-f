@@ -11,11 +11,6 @@ const htmlMinify = require('html-minifier');
 const gulpPug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 
-function moveDistToRoot() {
-  return gulp.src('dist/**/*')
-    .pipe(gulp.dest('docs'));
-}
-
 function serve() {
   browserSync.init({
     server: {
@@ -124,7 +119,7 @@ function watchFiles() {
   gulp.watch(['src/scripts/**/*.js'], js);
 }
 
-const build = gulp.series(clean, gulp.parallel(pug, scss, images, fonts, svg, js), moveDistToRoot);
+const build = gulp.series(clean, gulp.parallel(pug, scss, images, fonts, svg, js));
 const watchapp = gulp.parallel(build, watchFiles, serve);
 
 exports.html = html;
