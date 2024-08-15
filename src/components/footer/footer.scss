@@ -1,6 +1,6 @@
-@import '../button/footer-button/fotter-button';
+@import '../button/block__button/block__button';
 
-.footer {
+.block {
   display: flex;
   justify-content: center;
   margin-block-start: 50px;
@@ -17,13 +17,13 @@
 }
 
 @media (min-width: 376px) {
-  .footer__button {
+  .block__button {
     flex-direction: row;
     justify-content: center;
     padding-block: 15px;
   }
 
-  .footer__button-icon {
+  .block__button-icon {
     block-size: 21px;
     inline-size: 21px;
   }

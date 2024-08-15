@@ -2,13 +2,13 @@
 
 .button {
   @include buttonLike;
+  box-shadow: 2px 2px 0 var(--main-color, #000); 
   &::before {
     @include laneButton;
     background: var(--main-color, #000);
     transition: transform 0.5s ease-in-out;
   }
   &:hover::before {
-    transition: transform 0.5s ease-in-out;
     transform: translateX(0);
   }
   &:focus {
@@ -16,7 +16,6 @@
   }
   &:focus-visible {
     box-shadow: 2px 2px 0 var(--main-color, #000);
-    transition: box-shadow 0.3s;
   }
 }
 

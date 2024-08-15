@@ -6,7 +6,7 @@
 */
 @media (prefers-color-scheme: light) {
 
-  :root {
+  :root.theme-light {
     --main-font: 'Inter';
     --main-variation-font: 'Inter-Variable';
     --accent-font: 'Press Start 2P';
@@ -30,7 +30,7 @@
 
 @media (prefers-color-scheme: dark) {
 
-  :root {
+  :root.theme-dark {
     --main-font: 'Inter';
     --main-variation-font: 'Inter-Variable';
     --accent-font: 'Press Start 2P';

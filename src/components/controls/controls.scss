@@ -9,6 +9,7 @@
 
 .card__icon-button {
   margin-block-start: 3px;
+  transition: border-color 0.3s ease;
   @include iconButton;
   &:focus {
     outline: none;

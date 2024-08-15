@@ -16,15 +16,15 @@ function serve() {
     server: {
       baseDir: './dist'
     },
-    logLevel: 'debug'
+   // logLevel: 'debug'
   });
 }
 
 function scss() {
   const plugins = [
-      autoprefixer(),
+      //autoprefixer(),
       mediaquery(),
-      cssnano()
+      //cssnano()
   ]
   return gulp.src('src/layouts/default.scss')
         //.pipe(plumber())
@@ -99,7 +99,7 @@ function svg() {
 }
 
 function js() {
-  return gulp.src('src/scripts/**/*.js')
+  return gulp.src('src/scripts/**/*.js', {encoding: false})
     .pipe(gulp.dest('dist/scripts'))
     .pipe(browserSync.reload({stream: true}));
 }
