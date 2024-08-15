@@ -13,7 +13,7 @@ const sass = require('gulp-sass')(require('sass'));
 
 function moveDistToRoot() {
   return gulp.src('dist/**/*')
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('docs'));
 }
 
 function serve() {
