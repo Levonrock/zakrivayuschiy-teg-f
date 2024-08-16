@@ -1,3 +1,5 @@
+@import '../like-button/button-likeMixins';
+
 @mixin fButton {
   display: flex;
   flex-direction: column;
@@ -5,4 +7,46 @@
   gap: 8px;
   min-inline-size: 306px;
   padding-block: 15px;
+}
+
+.button-save {
+  display: flex;
+  justify-content: center;
+  margin-block-start: 50px;
+  margin-block-end: 100px; 
+  @include fButton;
+  &::before {
+    background: var(--main-color, #000);
+    transition: transform 0.5s ease-in-out;
+  } 
+  &:hover::before {
+    transform: translateX(0);
+  }
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    box-shadow: 2px 2px 0 var(--main-color, #000);
+  }
+}
+
+.button-save__icon {
+  color: var(--button-text-color, #fff);
+  block-size: 28px;
+  inline-size: 28px;
+  mix-blend-mode: difference;
+}
+
+
+@media (min-width: 376px) {
+  .button {
+    flex-direction: row;
+    justify-content: center;
+    padding-block: 15px;
+  }
+
+  .button-save__icon {
+    block-size: 21px;
+    inline-size: 21px;
+  }
 }

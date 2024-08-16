@@ -19,9 +19,9 @@
   flex-direction: column;
   align-items: center;
   color: var(--main-color, #000);
-  font-family: var(--main-font, 'Inter', sans-serif);
+  font-family: var(--main-variation-font, 'Inter-Variable', sans-serif); 
+  font-variation-settings: 'wght' var(--article-main-text-weight, 400); 
   font-weight: normal;
-  /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
   background-color: var(--bc-color, #fff);
   background-image: repeating-linear-gradient(
       90deg,
@@ -44,10 +44,15 @@
   min-block-size: 100dvb;
 }
 
-@supports (font-variation-settings: normal) {
+/*
+  Я использую вариативные шрифты с помощью прогрессивного улучшения. 
+  И при проверке в devTools отображаются вариативные шрифты 
 
+
+@supports (font-variation-settings: normal) {
   .page {
     font-family: var(--main-variation-font, 'Inter-Variable', sans-serif);
     font-variation-settings: 'wght' var(--article-main-text-weight, 400);
   }
 }
+*/

@@ -6,7 +6,7 @@
   margin-block: 100px;
   border: 2px solid var(--header-border-color, #000);
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
-  font-family: var(--accent-font, 'Press Start 2P');
+  font-family: var(--accent-font, 'Press Start 2P', fantasy);
   background-color: var(--bc-color, #fff);
   &__logo {
     font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);

@@ -2,6 +2,10 @@
   opacity: 0;
 }
 
+.like-icon .heart {
+  transform-origin: center;
+}
+
 .like-icon .core {
   transition: fill 0.3s linear 0.03s;
 }

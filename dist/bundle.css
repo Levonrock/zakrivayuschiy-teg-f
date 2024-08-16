@@ -41,6 +41,7 @@
   --main-color: #000;
   --article-main-text-weight: 400;
   --article-title-weight: 700;
+  --color-label: #000;
   --rep-linear-gradient-color-first: #d3d3d3;
   --rep-linear-gradient-color-second: transparent;
   --linear-gradient-color-first: #e7e7e7;
@@ -129,9 +130,9 @@ ol {
   flex-direction: column;
   align-items: center;
   color: var(--main-color, #000);
-  font-family: var(--main-font, "Inter", sans-serif);
+  font-family: var(--main-variation-font, "Inter-Variable", sans-serif);
+  font-variation-settings: "wght" var(--article-main-text-weight, 400);
   font-weight: normal;
-  /*пришлось добавить, так как тесты не пускают, хотя ниже данное свойство указано*/
   background-color: var(--bc-color, #fff);
   background-image: repeating-linear-gradient(90deg, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px), repeating-linear-gradient(to bottom, var(--rep-linear-gradient-color-first, #d3d3d3) 0 2px, var(--rep-linear-gradient-color-second, transparent) 2px 4px), linear-gradient(to bottom, var(--linear-gradient-color-first, #e7e7e7) 0.01%, var(--linear-gradient-color-second, #1a1a1a));
   background-size: cover;
@@ -140,12 +141,18 @@ ol {
   min-block-size: 100dvb;
 }
 
+/*
+  Я использую вариативные шрифты с помощью прогрессивного улучшения. 
+  И при проверке в devTools отображаются вариативные шрифты 
+
+
 @supports (font-variation-settings: normal) {
   .page {
-    font-family: var(--main-variation-font, "Inter-Variable", sans-serif);
-    font-variation-settings: "wght" var(--article-main-text-weight, 400);
+    font-family: var(--main-variation-font, 'Inter-Variable', sans-serif);
+    font-variation-settings: 'wght' var(--article-main-text-weight, 400);
   }
 }
+*/
 
 .header {
   display: flex;
@@ -155,7 +162,7 @@ ol {
   margin-block: 100px;
   border: 2px solid var(--header-border-color, #000);
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
-  font-family: var(--accent-font, "Press Start 2P");
+  font-family: var(--accent-font, "Press Start 2P", fantasy);
   background-color: var(--bc-color, #fff);
 }
 
@@ -254,6 +261,7 @@ ol {
 }
 
 .card__title {
+  font-variation-settings: "wght" var(--article-title-weight, 700);
   border-block-end: 2px solid var(--main-color, #000);
   padding-inline-start: 10px;
   padding-inline-end: 24px;
@@ -273,8 +281,8 @@ ol {
   inset-inline-end: 11px;
   z-index: 1;
   opacity: 0.5;
-  color: var(--main-color, #000);
-  font-family: var(--accent-font, "Press Start 2P");
+  color: var(--color-label, #000);
+  font-family: var(--accent-font, "Press Start 2P", fantasy);
   font-size: 14px;
   line-height: 14px;
   text-shadow: -1px 0 var(--text-stroke-color, #fff), 0 1px var(--text-stroke-color, #fff), 1px 0 var(--text-stroke-color, #fff), 0 -1px var(--text-stroke-color, #fff);
@@ -302,12 +310,6 @@ ol {
   height: auto;
   object-fit: cover;
   aspect-ratio: 1/1;
-}
-
-@supports (font-variation-settings: normal) {
-  .card__title {
-    font-variation-settings: "wght" var(--article-title-weight, 700);
-  }
 }
 
 @supports (text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000) {
@@ -347,6 +349,10 @@ ol {
 
 .sparks {
   opacity: 0;
+}
+
+.like-icon .heart {
+  transform-origin: center;
 }
 
 .like-icon .core {
@@ -484,14 +490,11 @@ ol {
   filter: saturate(1.5);
 }
 
-.block {
+.button-save {
   display: flex;
   justify-content: center;
   margin-block-start: 50px;
   margin-block-end: 100px;
-}
-
-.block__button {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -500,7 +503,24 @@ ol {
   padding-block: 15px;
 }
 
-.block__button-icon {
+.button-save::before {
+  background: var(--main-color, #000);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button-save:hover::before {
+  transform: translateX(0);
+}
+
+.button-save:focus {
+  outline: none;
+}
+
+.button-save:focus-visible {
+  box-shadow: 2px 2px 0 var(--main-color, #000);
+}
+
+.button-save__icon {
   color: var(--button-text-color, #fff);
   block-size: 28px;
   inline-size: 28px;
@@ -624,6 +644,7 @@ ol {
   --main-color: #000;
   --article-main-text-weight: 400;
   --article-title-weight: 700;
+  --color-label: #000;
   --rep-linear-gradient-color-first: #d3d3d3;
   --rep-linear-gradient-color-second: transparent;
   --linear-gradient-color-first: #e7e7e7;
@@ -646,11 +667,12 @@ ol {
   --main-color: #00cc14;
   --article-main-text-weight: 465;
   --article-title-weight: 785;
+  --color-label: #00cc14;
   --rep-linear-gradient-color-first: #000;
   --rep-linear-gradient-color-second: transparent;
   --linear-gradient-color-first: #007f0c;
   --linear-gradient-color-second: #004306;
-  --text-stroke-color: #00cc14;
+  --text-stroke-color: #000;
   --heart__contour-color: #00cc14;
   --heart__sparks-color: red;
   --heart__color: red;
@@ -679,13 +701,13 @@ ol {
   .card__description {
     padding-block-start: 30px;
   }
-  .block__button {
+  .button {
     flex-direction: row;
     justify-content: center;
     padding-block: 15px;
   }
 
-  .block__button-icon {
+  .button-save__icon {
     block-size: 21px;
     inline-size: 21px;
   }
@@ -704,6 +726,7 @@ ol {
     --main-color: #000;
     --article-main-text-weight: 400;
     --article-title-weight: 700;
+    --color-label: #000;
     --rep-linear-gradient-color-first: #d3d3d3;
     --rep-linear-gradient-color-second: transparent;
     --linear-gradient-color-first: #e7e7e7;
@@ -728,6 +751,7 @@ ol {
     --main-color: #00cc14;
     --article-main-text-weight: 465;
     --article-title-weight: 785;
+    --color-label: #00cc14;
     --rep-linear-gradient-color-first: #000;
     --rep-linear-gradient-color-second: transparent;
     --linear-gradient-color-first: #007f0c;
