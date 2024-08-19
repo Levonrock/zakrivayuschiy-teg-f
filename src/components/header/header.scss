@@ -39,12 +39,10 @@
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.6;
-      transition: opacity 0.3s;
       cursor: pointer;
     }
     &:disabled {
       opacity: 0.6;
-      transition: opacity 0.3s;
       animation: none;
       pointer-events: none;
     }
@@ -73,8 +71,6 @@
     }
     &:focus-visible::after {
       opacity: 0.6;
-      background-color: var(--main-color, #000);
-      transition: transform 0.3s, background-color 0.3s linear;
       transform: scaleX(1);
     }
   }

@@ -203,13 +203,11 @@ ol {
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s;
   cursor: pointer;
 }
 
 .theme-menu__button:disabled {
   opacity: 0.6;
-  transition: opacity 0.3s;
   animation: none;
   pointer-events: none;
 }
@@ -242,8 +240,6 @@ ol {
 
 .theme-menu__button:focus-visible::after {
   opacity: 0.6;
-  background-color: var(--main-color, #000);
-  transition: transform 0.3s, background-color 0.3s linear;
   transform: scaleX(1);
 }
 
@@ -262,7 +258,6 @@ ol {
 
 .card__title {
   font-variation-settings: "wght" var(--article-title-weight, 700);
-  border-block-end: 2px solid var(--main-color, #000);
   padding-inline-start: 10px;
   padding-inline-end: 24px;
   padding-block: 5px;
@@ -273,12 +268,13 @@ ol {
 
 .card__block {
   position: relative;
+  border-block: 2px solid var(--main-color, #000);
 }
 
 .card__block-label {
   position: absolute;
-  inset-block-start: 22px;
-  inset-inline-end: 11px;
+  inset-block-start: 22.6px;
+  inset-inline-end: 11.7px;
   z-index: 1;
   opacity: 0.5;
   color: var(--color-label, #000);
@@ -323,15 +319,15 @@ ol {
 .controls {
   display: flex;
   justify-content: end;
-  gap: 6px;
+  gap: 7px;
   margin-inline-end: 25.6px;
 }
 
 .card__icon-button {
-  margin-block-start: 2px;
+  margin-block-start: 1.7px;
   transition: border-color 0.3s ease;
   inline-size: 39px;
-  block-size: 38px;
+  block-size: 34.71px;
   padding: 0;
   appearance: none;
   border: 2px solid transparent;
@@ -418,6 +414,9 @@ ol {
   background-color: var(--bc-color, #fff);
   transition: box-shadow 0.3s;
   appearance: none;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .button::before {
@@ -453,8 +452,8 @@ ol {
 .card__like-button {
   position: relative;
   z-index: 1;
+  inline-size: 130px;
   margin-block-end: 25px;
-  padding-inline: 37px;
   padding-block: 12.5px;
 }
 
@@ -491,7 +490,9 @@ ol {
 }
 
 .button-save {
+  position: relative;
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   margin-block-start: 50px;
   margin-block-end: 100px;
@@ -499,11 +500,14 @@ ol {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  min-inline-size: 306px;
-  padding-block: 15px;
+  min-inline-size: 312px;
+  block-size: 83px;
 }
 
 .button-save::before {
+  content: "";
+  inline-size: 100%;
+  block-size: 100%;
   background: var(--main-color, #000);
   transition: transform 0.5s ease-in-out;
 }
@@ -698,13 +702,22 @@ ol {
   .card__description {
     padding-block-start: 30px;
   }
-  .card__description {
-    padding-block-start: 30px;
+
+  .card__block-label {
+    inset-block-start: 26px;
+    inset-inline-end: 23px;
   }
   .button {
     flex-direction: row;
     justify-content: center;
+    padding-block: 11px;
+  }
+
+  .button-save {
     padding-block: 15px;
+    padding-inline-start: 2px;
+    min-inline-size: 340px;
+    block-size: 55px;
   }
 
   .button-save__icon {
@@ -717,7 +730,7 @@ ol {
 }
 
 @media (prefers-color-scheme: light){
-  :root.theme-light {
+  :root {
     --main-font: "Inter";
     --main-variation-font: "Inter-Variable";
     --accent-font: "Press Start 2P";
@@ -742,7 +755,7 @@ ol {
 }
 
 @media (prefers-color-scheme: dark){
-  :root.theme-dark {
+  :root {
     --main-font: "Inter";
     --main-variation-font: "Inter-Variable";
     --accent-font: "Press Start 2P";

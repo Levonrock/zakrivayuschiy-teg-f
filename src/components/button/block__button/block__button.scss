@@ -5,17 +5,22 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  min-inline-size: 306px;
-  padding-block: 15px;
+  min-inline-size: 312px;
+  block-size: 83px;
 }
 
 .button-save {
+  position: relative;
   display: flex;
+  margin: 0 auto;
   justify-content: center;
   margin-block-start: 50px;
   margin-block-end: 100px; 
   @include fButton;
   &::before {
+    content: '';
+    inline-size: 100%;
+    block-size: 100%;
     background: var(--main-color, #000);
     transition: transform 0.5s ease-in-out;
   } 
@@ -42,7 +47,14 @@
   .button {
     flex-direction: row;
     justify-content: center;
+    padding-block: 11px;
+  }
+
+  .button-save {
     padding-block: 15px;
+    padding-inline-start: 2px;
+    min-inline-size: 340px;
+    block-size: 55px;
   }
 
   .button-save__icon {
