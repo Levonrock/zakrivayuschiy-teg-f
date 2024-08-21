@@ -19,6 +19,12 @@
   }
 }
 
+@media (min-width: 376px) {
+  .card__icon-button {
+    block-size: 34.78px;
+  }
+}
+
 @import '../button/icon-button/like-icon/like-icon';
 @import '../button/like-button/like-button'
 

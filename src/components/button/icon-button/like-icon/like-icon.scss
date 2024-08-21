@@ -1,7 +1,13 @@
 .sparks {
   opacity: 0;
 }
-
+.like-icon {
+  display: block;
+  margin: 0 auto;
+  block-size: 36px;
+  inline-size: 39px;
+ 
+}
 .like-icon .heart {
   transform-origin: center;
 }
